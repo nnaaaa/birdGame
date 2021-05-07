@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background{
+            width:500px;
+            height:800px;
+            background: url("background.jfif");
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .bird{
+            width:40px;
+            height:40px;
+            position: absolute;
+            background: transparent;
+            transition: 0.1s;
+        }
+        .floor,.ceil{
+            width:500px;
+            height:50px;
+            background: darkgreen;
+            position: absolute;
+        }
+        .floor{
+            bottom:0;
+        }
+        .ceil{
+            top:0;
+        }
+        .pipe{
+            position: absolute;
+            width:50px;
+            height:700px;
+            position: absolute;
+            top:50px;
+            background: transparent;
+        }
+        .pipe .top,.pipe .bot{
+            width:100%;
+            position: absolute;
+            background: greenyellow;
+        }
+        .pipe .top{
+            top:0;
+        }
+        .pipe .bot{
+            bottom: 0;
+        }
+        .gameOver{
+            display:none;
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:rgba(128, 128, 128, 0.164);
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            z-index: 100;
+        }
+        .gameOver:active{
+            opacity:0.1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="ceil" id=""></div>
+        <img src="bird.jpg" class="bird"></img>
+        <div class="pipe1 pipe">
+            <div class="top"></div>
+            <div class="bot"></div>
+        </div>
+        <div class="pipe2 pipe">
+            <div class="top"></div>
+            <div class="bot"></div>
+        </div>
+        <div class="floor"></div>
+        <div class="gameOver">Game Over</div>
+    </img>
+    <script src="main.js"></script>
+</body>
+</html>
