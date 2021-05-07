@@ -68,6 +68,7 @@ function setWorld() {
 
     birdObj.style.top = `${bird.pos.y}px`
     birdObj.style.left = `${bird.pos.x}px`
+
     const [bot, top] = randomPipe()
     pipe1Obj.style.left = `${pipe1.pos}px`
     pipe1_top.style.height = `${top}px`
@@ -86,20 +87,16 @@ function Start() {
     if (pipe1.pos <= 0 - pipe.size.width) {
         newPipe();
     }
-    background.onClick = () => {
-        jump()
-    }
     if (
         bird.pos.y + bird.size.height >= MAX_HEIGHT - foreground.height ||
         bird.pos.y <= 0 ||
         ((bird.pos.y <= gap || bird.pos.y + bird.size.height >= gap + pipe.gap) &&
-            (bird.pos.x + bird.size.width >= pipe1.pos && bird.pos.x <= pipe1.pos + pipe.size.width))
+        (bird.pos.x + bird.size.width >= pipe1.pos && bird.pos.x <= pipe1.pos + pipe.size.width))
     ) {
         birdObj.style.top = `${bird.pos.y}px`
         pipe1Obj.style.left = `${pipe1.pos}px`
         gameOver.style.display = 'flex'
-        console.log(bird.pos.x + bird.size.width, ">=", pipe1.pos, bird.pos.x, "<=", pipe1.pos + pipe.size.width)
-        console.log(bird.pos.y, "<", gap, bird.pos.y + bird.size.height, ">", gap + pipe.gap)
+        document.removeEventListener("click", jump)
     } else {
         birdObj.style.top = `${bird.pos.y}px`
         pipe1Obj.style.left = `${pipe1.pos}px`
