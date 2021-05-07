@@ -6,39 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
         .background{
-            width:500px;
-            height:800px;
-            background: url("background.jfif");
+            width:288px;
+            height:512px;
+            background: url("background.png");
             position: relative;
             z-index: 2;
             overflow: hidden;
         }
         .bird{
-            width:40px;
-            height:40px;
+            width:38px;
+            height:26px;
             position: absolute;
-            background: transparent;
+            background:url("bird.png");
+            background-position:center center;
             transition: 0.1s;
         }
-        .floor,.ceil{
-            width:500px;
-            height:50px;
-            background: darkgreen;
-            position: absolute;
-        }
         .floor{
+            width:306px;
+            height:108px;
+            position: absolute;
             bottom:0;
-        }
-        .ceil{
-            top:0;
+            background:url("foreground.png");
         }
         .pipe{
             position: absolute;
-            width:50px;
-            height:700px;
+            width:52px;
+            height:404px;
             position: absolute;
-            top:50px;
+            top:0;
             background: transparent;
         }
         .pipe .top,.pipe .bot{
@@ -48,9 +54,13 @@
         }
         .pipe .top{
             top:0;
+            background:url("pipeTop.png");
+            background-position: center bottom;
         }
         .pipe .bot{
             bottom: 0;
+            background:url("pipeBot.png");
+
         }
         .gameOver{
             display:none;
@@ -72,8 +82,7 @@
 </head>
 <body>
     <div class="background">
-        <div class="ceil" id=""></div>
-        <img src="bird.jpg" class="bird"></img>
+        <div class="bird"></div>
         <div class="pipe1 pipe">
             <div class="top"></div>
             <div class="bot"></div>
